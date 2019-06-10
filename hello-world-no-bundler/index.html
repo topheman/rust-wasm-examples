@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+  </head>
+  <body>
+    <!-- Note the usage of `type=module` here as this is an ES6 module 👇 -->
+    <script type="module">
+      // Use ES module import syntax to import functionality from the module
+      // that we have compiled.
+      //
+      // No need for manual initialization, everything is in `default` import
+      import { logHelloWorld, alertHelloWorld, default as init } from './pkg/hello_world_no_bundler.js';
+      async function run() {
+        // First: load and init the wasm file
+        await init('./pkg/hello_world_no_bundler_bg.wasm');
+        // Then use it
+        logHelloWorld();
+        document.body.addEventListener("click", alertHelloWorld, false);
+      }
+      run();
+    </script>
+  </body>
+</html>
