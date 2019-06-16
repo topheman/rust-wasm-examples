@@ -9,13 +9,12 @@
       // that we have compiled.
       //
       // No need for manual initialization, everything is in `default` import
-      import { logHelloWorld, alertHelloWorld, default as init } from './pkg/hello_world_no_bundler.js';
+      import { alertHelloWorld, default as init } from './pkg/hello_world_no_bundler.js';
       async function run() {
         // First: load and init the wasm file
         await init('./pkg/hello_world_no_bundler_bg.wasm');
         // Then use it
-        logHelloWorld();
-        document.body.addEventListener("click", alertHelloWorld, false);
+        alertHelloWorld();
       }
       run();
     </script>
