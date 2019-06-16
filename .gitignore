@@ -1,1 +1,4 @@
 hello-world-no-bundler/target
+hello-world-bundler/target
+hello-world-bundler/node_modules
+hello-world-bundler/dist
